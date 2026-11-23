@@ -6,7 +6,7 @@
 import { makeRng, clamp, dist, angleTo, angleDiff, wrapAngle } from './rng.js';
 import { buildCity, collidesBuilding } from './city.js';
 import { spawnWalkers, updateWalkers } from './walkers.js';
-import { spawnTraffic, spawnParked, updateTraffic, drivePlayerCar, nearestEnterableCar, stealCar } from './traffic.js';
+import { spawnTraffic, spawnParked, makeCar, updateTraffic, drivePlayerCar, nearestEnterableCar, stealCar } from './traffic.js';
 import { updateHeat } from './heat.js';
 import { punch, shoot, updateBullets } from './fists.js';
 import { startContract, updateContracts, startTaxiJob, updateTaxi, CONTRACTS } from './contracts.js';
@@ -59,6 +59,9 @@ export function createGame(canvas, params) {
   };
   G.cars.push(...spawnTraffic(world, makeRng(SEED + 23), 16));
   G.cars.push(...spawnParked(world, makeRng(SEED + 31), 12));
+  // Dario Voss always parks his crimson sportscar on Casino Row, so the
+  // "Borrowed Wheels" contract is always completable.
+  G.cars.push(makeCar(1820, 320, 0, { parked: true, color: '#e84c4c', model: 'sport' }));
   try {
     G.saveExists = !!window.localStorage.getItem(SAVE_KEY);
   } catch (e) { /* no storage */ }
