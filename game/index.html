@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Solmara Heat — an open-world crime game</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e1a; height: 100%; overflow: hidden; }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: auto; background: #123; touch-action: none; }
+  #err { position: fixed; left: 8px; bottom: 8px; color: #f66; font: 12px monospace; white-space: pre-wrap; max-width: 90vw; z-index: 9; }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="1280" height="720"></canvas></div>
+<div id="err"></div>
+<script>
+  window.addEventListener('error', function (e) {
+    var el = document.getElementById('err');
+    if (el) el.textContent += (e.message || 'error') + '\n';
+  });
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
