@@ -1,18 +1,1 @@
-[
-  {
-    "name": "1-cover.png",
-    "query": "?scene=cover"
-  },
-  {
-    "name": "2-mission.png",
-    "query": "?scene=mission"
-  },
-  {
-    "name": "3-beach.png",
-    "query": "?scene=beach"
-  },
-  {
-    "name": "4-title.png",
-    "query": "?scene=title"
-  }
-]
+[{"name":"cover-street.png","query":"?shot=cover"},{"name":"chase-heat.png","query":"?shot=chase"},{"name":"job-taxi.png","query":"?shot=taxi"},{"name":"title-night.png","query":"?shot=menu"}]
